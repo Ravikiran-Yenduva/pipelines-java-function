@@ -53,7 +53,8 @@ steps:
 - task: AzureFunctionApp@1
   displayName: Azure Function App deploy
   inputs:
-    azureSubscription: $(serviceConnectionToAzure)
-    appType: functionApp
-    appName: $(appName)
-    package: $(build.artifactstagingdirectory)/$(appName)
+    azureSubscription: '$(serviceConnectionToAzure)'
+    appType: 'functionAppLinux'
+    appName: '$(appName)'
+    package: '$(build.artifactstagingdirectory)/$(appName)'
+    runtimeStack: 'JAVA|8'
