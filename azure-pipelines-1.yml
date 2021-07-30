@@ -56,5 +56,5 @@ steps:
     azureSubscription: '$(serviceConnectionToAzure)'
     appType: 'functionAppLinux'
     appName: '$(appName)'
-    package: '$(System.ArtifactsDirectory)/**/*.zip'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     runtimeStack: 'JAVA|8'
