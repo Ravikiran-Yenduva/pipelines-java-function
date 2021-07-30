@@ -9,6 +9,20 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+# at the top of your YAML file 
+# set some variables that you'll need when you deploy
+variables:
+  # the name of the service connection that you created above
+  serviceConnectionToAzure: ravi-funcapp-connection
+  # the name of your web app here is the same one you used above
+  # when you created the web app using the Azure CLI
+  appName: my-app-name
+  # the name of your functionApp is what you provided as
+  # stagingDirectory in pom.xml
+  functionAppName: 'my-app-name'
+# ...
+
+
 steps:
 - task: Maven@3
   inputs:
@@ -20,7 +34,7 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-    
+   
 # ...
 # add these as the last steps
 # to deploy to your app service
